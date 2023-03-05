@@ -19,8 +19,3 @@ footer {
 	font-family: 'VT323', monospace;
 	font-size: 90%;
 }
-
-@font-face {
-    font-family: VT323;
-    src: url("VT323-Regular.ttf");
-}
