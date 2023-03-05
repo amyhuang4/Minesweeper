@@ -107,7 +107,6 @@ public void displayLosingMessage()
     }
   }
   status = 1;
-  noLoop();
 }
 public void displayWinningMessage()
 {
@@ -204,8 +203,10 @@ public class MSButton
       image(click, x, y);
     else if (status==1)
       image(loser, x, y);
+      noLoop();
     else if (status==2)
       image(winner, x, y);
+      noLoop();
     else 
     image(none, x, y);
   }
