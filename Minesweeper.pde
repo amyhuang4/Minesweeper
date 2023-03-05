@@ -73,8 +73,11 @@ public void keyPressed() {
       setMines();
     }
     status =0;
+    loop();
   }
-  loop();
+  if (keyCode == CONTROL){
+    pressed = true;
+  }
 }
 
 public void keyReleased() {
