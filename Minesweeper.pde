@@ -13,20 +13,20 @@ void setup ()
 {
   size(480, 480);
   textAlign(CENTER, CENTER);
-  one = loadImage("ms1.png");
-  two = loadImage("ms2.png");
-  three = loadImage("ms3.png");
-  four = loadImage("ms4.png");
-  five = loadImage("ms5.png");
-  six = loadImage("ms6.png");
-  seven = loadImage("ms7.png");
-  eight = loadImage("ms8.png");
-  flag = loadImage("msflag.png");
+  one = loadImage("msbox/ms1.png");
+  two = loadImage("msbox/ms2.png");
+  three = loadImage("msbox/ms3.png");
+  four = loadImage("msbox/ms4.png");
+  five = loadImage("msbox/ms5.png");
+  six = loadImage("msbox/ms6.png");
+  seven = loadImage("msbox/ms7.png");
+  eight = loadImage("msbox/ms8.png");
+  flag = loadImage("msbox/msflag.png");
   none = loadImage("msbox/msnone.png");
-  mine = loadImage("msmine.png");
-  click = loadImage("msclick.png");
-  loser = loadImage("mslose.png");
-  winner = loadImage("mswin.png");
+  mine = loadImage("msbox/msmine.png");
+  click = loadImage("msbox/msclick.png");
+  loser = loadImage("msbox/mslose.png");
+  winner = loadImage("msbox/mswin.png");
 
   // make the manager
   Interactive.make( this );
