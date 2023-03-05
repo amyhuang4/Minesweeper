@@ -22,7 +22,7 @@ void setup ()
   seven = loadImage("ms7.png");
   eight = loadImage("ms8.png");
   flag = loadImage("msflag.png");
-  none = loadImage("msnone.png");
+  none = loadImage("msbox/msnone.png");
   mine = loadImage("msmine.png");
   click = loadImage("msclick.png");
   loser = loadImage("mslose.png");
