@@ -1,6 +1,6 @@
 body {
-    background-color: rgb(200,200,200);
-    color: rgb(0,0,0);
+    background-color: rgb(255,196,206);
+    color: rgb(252,143,161);
     font-family: 'VT323', monospace;
     text-align: center;
 }
@@ -13,9 +13,10 @@ body {
 
 header {
 	font-family: 'VT323', monospace;
+	font-size: 30px;
 }
 
 footer {
 	font-family: 'VT323', monospace;
-	font-size: 90%;
+	font-size: 15px;
 }
