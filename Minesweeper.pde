@@ -57,6 +57,9 @@ public void draw ()
   background( 255, 196, 206 );
   if (isWon() == true)
     displayWinningMessage();
+    if (status == 1||status == 2){
+     noLoop();
+    }
 }
 
 public void keyPressed() {
@@ -73,8 +76,11 @@ public void keyPressed() {
       setMines();
     }
     status =0;
+    loop();
   }
-  loop();
+  if (keyCode == CONTROL){
+    pressed = true;
+  }
 }
 
 public void keyReleased() {
@@ -104,19 +110,15 @@ public void displayLosingMessage()
     }
   }
   status = 1;
-  noLoop();
 }
 public void displayWinningMessage()
 {
   for (int r = 0; r < NUM_ROWS; r++) {
     for (int c = 0; c < NUM_COLS; c++) {
-      if (buttons[r][c].myLabel.equals("")){
-        buttons[r][c].setLabel("w");
-      }
+      buttons[r][c].setLabel("w");
     }
   }
   status = 2;
-  noLoop();
 }
 public boolean isValid(int r, int c)
 {
@@ -162,8 +164,8 @@ public class MSButton
     clicked = true;
     //your code here
     if (mouseButton == RIGHT||pressed==true) {
-      clicked = false;
       flagged = !flagged;
+      clicked = false;
     }
     if (flagged) clicked = false;
     else if (mines.contains(this)) {
