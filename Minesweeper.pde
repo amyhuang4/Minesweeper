@@ -57,6 +57,9 @@ public void draw ()
   background( 255, 196, 206 );
   if (isWon() == true)
     displayWinningMessage();
+    if (status == 1||status == 2){
+     noLoop();
+    }
 }
 
 public void keyPressed() {
@@ -110,12 +113,12 @@ public void displayLosingMessage()
 }
 public void displayWinningMessage()
 {
-  status = 2;
   for (int r = 0; r < NUM_ROWS; r++) {
     for (int c = 0; c < NUM_COLS; c++) {
       buttons[r][c].setLabel("W");
     }
   }
+  status = 2;
 }
 public boolean isValid(int r, int c)
 {
@@ -203,10 +206,8 @@ public class MSButton
       image(click, x, y);
     else if (status==1)
       image(loser, x, y);
-      noLoop();
     else if (status==2)
       image(winner, x, y);
-      noLoop();
     else 
     image(none, x, y);
   }
