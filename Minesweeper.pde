@@ -165,6 +165,7 @@ public class MSButton
     //your code here
     if (mouseButton == RIGHT||pressed==true) {
       flagged = !flagged;
+      clicked = false;
     }
     if (flagged) clicked = false;
     else if (mines.contains(this)) {
