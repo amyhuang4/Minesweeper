@@ -13,20 +13,20 @@ void setup ()
 {
   size(480, 480);
   textAlign(CENTER, CENTER);
-  one = loadImage("msbox/ms1.png");
-  two = loadImage("msbox/ms2.png");
-  three = loadImage("msbox/ms3.png");
-  four = loadImage("msbox/ms4.png");
-  five = loadImage("msbox/ms5.png");
-  six = loadImage("msbox/ms6.png");
-  seven = loadImage("msbox/ms7.png");
-  eight = loadImage("msbox/ms8.png");
-  flag = loadImage("msbox/msflag.png");
-  none = loadImage("msbox/msnone.png");
-  mine = loadImage("msbox/msmine.png");
-  click = loadImage("msbox/msclick.png");
-  loser = loadImage("msbox/mslose.png");
-  winner = loadImage("msbox/mswin.png");
+  one = loadImage("ms1.png");
+  two = loadImage("ms2.png");
+  three = loadImage("ms3.png");
+  four = loadImage("ms4.png");
+  five = loadImage("ms5.png");
+  six = loadImage("ms6.png");
+  seven = loadImage("ms7.png");
+  eight = loadImage("ms8.png");
+  flag = loadImage("msflag.png");
+  none = loadImage("msnone.png");
+  mine = loadImage("msmine.png");
+  click = loadImage("msclick.png");
+  loser = loadImage("mslose.png");
+  winner = loadImage("mswin.png");
 
   // make the manager
   Interactive.make( this );
@@ -57,9 +57,6 @@ public void draw ()
   background( 255, 196, 206 );
   if (isWon() == true)
     displayWinningMessage();
-    if (status == 1||status == 2){
-     noLoop();
-    }
 }
 
 public void keyPressed() {
@@ -76,11 +73,8 @@ public void keyPressed() {
       setMines();
     }
     status =0;
-    loop();
   }
-  if (keyCode == CONTROL){
-    pressed = true;
-  }
+  loop();
 }
 
 public void keyReleased() {
@@ -110,15 +104,19 @@ public void displayLosingMessage()
     }
   }
   status = 1;
+  noLoop();
 }
 public void displayWinningMessage()
 {
   for (int r = 0; r < NUM_ROWS; r++) {
     for (int c = 0; c < NUM_COLS; c++) {
-      buttons[r][c].setLabel("W");
+      if (buttons[r][c].myLabel.equals("")){
+        buttons[r][c].setLabel("w");
+      }
     }
   }
   status = 2;
+  noLoop();
 }
 public boolean isValid(int r, int c)
 {
@@ -164,8 +162,8 @@ public class MSButton
     clicked = true;
     //your code here
     if (mouseButton == RIGHT||pressed==true) {
-      flagged = !flagged;
       clicked = false;
+      flagged = !flagged;
     }
     if (flagged) clicked = false;
     else if (mines.contains(this)) {
@@ -203,12 +201,12 @@ public class MSButton
       image(eight, x, y);
     else if ( clicked && mines.contains(this) ) 
       image(mine, x, y);
+    else if (myLabel.equals("w"))
+      image(winner, x, y);
     else if (clicked)
       image(click, x, y);
     else if (status==1)
       image(loser, x, y);
-    else if (status==2)
-      image(winner, x, y);
     else 
     image(none, x, y);
   }
